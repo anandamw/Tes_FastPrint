@@ -1,8 +1,16 @@
 # 🛒 Product Management System - FastPrint Junior Programmer Test
 
-Sistem manajemen inventori modern yang dibangun dengan **Laravel 12** dan **Tailwind CSS**, dirancang untuk memenuhi persyaratan teknis posisi Junior Programmer di FastPrint. Proyek ini menggabungkan performa backend yang solid dengan pengalaman pengguna (UX) yang premium.
+## 👤 Developer
+
+**Ananda Mw** - [My Portfolio](https://anandamw.site)
 
 ---
+
+![Project Screenshot](image.png)
+
+---
+
+Sistem manajemen inventori modern yang dibangun dengan **Laravel 12** dan **Tailwind CSS**, dirancang untuk memenuhi persyaratan teknis posisi Junior Programmer di FastPrint. Proyek ini menggabungkan performa backend yang solid dengan pengalaman pengguna (UX) yang premium.
 
 ## ✨ Fitur Unggulan
 
@@ -19,7 +27,7 @@ Sistem manajemen inventori modern yang dibangun dengan **Laravel 12** dan **Tail
 
 - **Backend**: Laravel 12.x (Standard MVC)
 - **Frontend**: Tailwind CSS 3.x, Alpine.js (subtle interactions)
-- **Database**: MySQL / MariaDB
+- **Database**: MySQL
 - **Icons**: Lucide Icons / Heroicons
 
 ---
@@ -29,8 +37,8 @@ Sistem manajemen inventori modern yang dibangun dengan **Laravel 12** dan **Tail
 1. **Clone & Masuk ke Proyek**
 
     ```bash
-    git clone <repository-url>
-    cd tes_fastprint
+    git clone https://github.com/anandamw/Tes_FastPrint.git
+    cd Tes_FastPrint
     ```
 
 2. **Instal Dependensi PHP**
@@ -82,12 +90,6 @@ Navigasi dan layout utama berada di `layouts/app.blade.php`. Dark mode diimpleme
 ### Lokalisasi
 
 Pesan error validasi dikustomisasi langsung melalui `ProductController` untuk memberikan feedback yang manusiawi dalam Bahasa Indonesia.
-
----
-
-## 👤 Developer
-
-**Ananda Mw** - [My Portfolio](https://anandamw.site)
 
 ---
 
