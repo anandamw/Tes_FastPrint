@@ -47,20 +47,22 @@
 
 <body
     class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased min-h-screen flex flex-col transition-colors duration-300">
-    <nav class="sticky top-0 z-50 w-full glass border-b border-slate-200">
+    <nav class="sticky top-0 z-50 w-full glass border-b border-slate-200 dark:border-slate-800 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0 flex items-center gap-2">
-
                     <span
                         class="text-xl font-bold tracking-tight text-slate-800 dark:text-slate-100 italic transition-colors">FastPrint
                         <span class="text-indigo-600 dark:text-indigo-400">Inventory</span></span>
                 </div>
-                <div class="flex items-center gap-4">
-                    <div class="sm:flex sm:space-x-8 mr-4">
+                <div class="flex items-center gap-2">
+                    <!-- Desktop Menu -->
+                    <div class="hidden sm:flex sm:space-x-8 mr-4">
                         <a href="{{ route('products.index') }}"
-                            class="inline-flex items-center px-1 pt-1 border-b-2 border-indigo-500 text-sm font-medium text-slate-900 dark:text-slate-100 transition-colors">Dashboard</a>
+                            class="inline-flex items-center px-1 pt-1 border-b-2 {{ Request::routeIs('products.*') ? 'border-indigo-500 text-slate-900 dark:text-slate-100' : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300' }} text-sm font-bold transition-colors">Katalog</a>
                     </div>
+
+                    <!-- Theme Toggle -->
                     <button id="theme-toggle" type="button"
                         class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-slate-200 dark:focus:ring-slate-700 rounded-xl text-sm p-2.5 transition">
                         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -74,7 +76,25 @@
                                 fill-rule="evenodd" clip-rule="evenodd"></path>
                         </svg>
                     </button>
+
+                    <!-- Hamburger Button -->
+                    <button id="mobile-menu-button" type="button"
+                        class="sm:hidden text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-slate-200 dark:focus:ring-slate-700 rounded-xl text-sm p-2.5 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden sm:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 transition-all duration-300 overflow-hidden">
+            <div class="px-4 py-3 space-y-1">
+                <a href="{{ route('products.index') }}"
+                    class="block px-4 py-3 rounded-xl text-base font-bold {{ Request::routeIs('products.*') ? 'bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800' }} transition-colors">Katalog</a>
             </div>
         </div>
     </nav>

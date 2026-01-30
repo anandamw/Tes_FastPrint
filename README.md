@@ -15,10 +15,9 @@ Sistem manajemen inventori modern yang dibangun dengan **Laravel 12** dan **Tail
 ## ✨ Fitur Unggulan
 
 - 🌓 **Mode Gelap Adaptif**: Dukungan penuh mode terang & gelap dengan toggle tema yang persisten (tersimpan otomatis).
-- 📊 **Statistik Real-time**: Card statistik di Dashboard untuk memantau jumlah produk "Bisa Dijual" dan "Tidak Bisa Dijual".
+- 📊 **Statistik Dinamis**: Card statistik yang selalu sinkron dengan database untuk memantau jumlah produk "Bisa Dijual" dan "Tidak Bisa Dijual" setiap kali halaman dimuat.
 - 🔄 **Sinkronisasi API Cerdas**: Perintah Artisan otomatis yang menangani autentikasi MD5, penangkapan session cookie, dan sinkronisasi data dari API rekrutmen.
 - 🇮🇩 **Lokalisasi Penuh**: Pesan error validasi form yang sudah diterjemahkan ke Bahasa Indonesia untuk kemudahan penggunaan.
-- 🎨 **Desain Premium**: Antarmuka berbasis Glassmorphism dengan font Inter dan animasi transisi yang halus.
 - 📱 **Responsif & Modern**: Layout yang dioptimalkan untuk berbagai ukuran layar menggunakan Tailwind CSS.
 
 ---
@@ -26,7 +25,7 @@ Sistem manajemen inventori modern yang dibangun dengan **Laravel 12** dan **Tail
 ## 🛠️ Tech Stack
 
 - **Backend**: Laravel 12.x (Standard MVC)
-- **Frontend**: Tailwind CSS 3.x, Alpine.js (subtle interactions)
+- **Frontend**: Tailwind CSS 3.x
 - **Database**: MySQL
 - **Icons**: Lucide Icons / Heroicons
 

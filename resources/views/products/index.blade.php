@@ -2,10 +2,13 @@
 
 @section('content')
     <div class="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-        <div>
-            <h1 class="text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight transition-colors">Katalog
+        <div class="flex-grow">
+            <h1
+                class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight transition-colors">
+                Katalog
                 Produk</h1>
-            <p class="mt-2 text-slate-500 dark:text-slate-400 text-lg transition-colors">Daftar produk dengan status <span
+            <p class="mt-2 text-slate-500 dark:text-slate-400 text-base md:text-lg transition-colors">Daftar produk dengan
+                status <span
                     class="font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-0.5 rounded-lg border border-emerald-100 dark:border-emerald-800/50 italic">"bisa
                     dijual"</span>.</p>
         </div>
@@ -58,31 +61,30 @@
     </div>
 
     <div
-        class="overflow-hidden bg-white dark:bg-slate-900 shadow-xl shadow-slate-200/50 dark:shadow-none sm:rounded-2xl border border-slate-100 dark:border-slate-800 transition-colors">
-        <div class="min-w-full overflow-x-auto">
-            <table class="min-w-full divide-y divide-slate-100 dark:divide-slate-800">
+        class="overflow-hidden bg-white dark:bg-slate-900 shadow-xl shadow-slate-200/50 dark:shadow-none rounded-2xl border border-slate-100 dark:border-slate-800 transition-colors">
+        <div class="overflow-x-auto">
+            <table class="w-full divide-y divide-slate-100 dark:divide-slate-800">
                 <thead class="bg-slate-50/50 dark:bg-slate-800/50">
                     <tr>
                         <th scope="col"
-                            class="px-6 py-4 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                            class="px-4 md:px-6 py-4 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                             No</th>
                         <th scope="col"
-                            class="px-6 py-4 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                            Informasi
+                            class="px-4 md:px-6 py-4 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                             Produk</th>
                         <th scope="col"
-                            class="px-6 py-4 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                            class="px-4 md:px-6 py-4 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                             Harga</th>
                         <th scope="col"
-                            class="px-6 py-4 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                            class="hidden md:table-cell px-6 py-4 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                             Kategori
                         </th>
                         <th scope="col"
-                            class="px-6 py-4 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                            class="hidden sm:table-cell px-6 py-4 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                             Status
                         </th>
                         <th scope="col"
-                            class="px-6 py-4 text-center text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                            class="px-4 md:px-6 py-4 text-center text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                             Aksi
                         </th>
                     </tr>
@@ -90,24 +92,29 @@
                 <tbody class="divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-slate-900">
                     @forelse($products as $product)
                         <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition duration-150">
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-slate-400 dark:text-slate-500">
+                            <td
+                                class="px-4 md:px-6 py-4 whitespace-nowrap text-sm font-bold text-slate-400 dark:text-slate-500">
                                 #{{ $products->firstItem() + $loop->index }}</td>
-                            <td class="px-6 py-4">
-                                <div class="text-sm font-semibold text-slate-900 dark:text-slate-100 transition-colors">
+                            <td class="px-4 md:px-6 py-4">
+                                <div
+                                    class="text-sm font-semibold text-slate-900 dark:text-slate-100 transition-colors truncate max-w-[150px] md:max-w-xs">
                                     {{ $product->nama_produk }}</div>
-
+                                <div class="md:hidden mt-0.5 space-y-0.5">
+                                    <span
+                                        class="text-[10px] font-medium text-slate-400 uppercase">{{ $product->kategori->nama_kategori }}</span>
+                                </div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-4 md:px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm font-bold text-indigo-600 dark:text-indigo-400">Rp
                                     {{ number_format($product->harga, 0, ',', '.') }}</div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="hidden md:table-cell px-6 py-4 whitespace-nowrap">
                                 <span
                                     class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-colors">
                                     {{ $product->kategori->nama_kategori }}
                                 </span>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">
+                            <td class="hidden sm:table-cell px-6 py-4 whitespace-nowrap text-sm text-slate-500">
                                 <span
                                     class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold uppercase tracking-wider {{ $product->status->nama_status == 'bisa dijual' ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400' }} transition-colors">
                                     <span
@@ -115,16 +122,18 @@
                                     {{ $product->status->nama_status }}
                                 </span>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium space-x-3">
-                                <a href="{{ route('products.edit', $product->id_produk) }}"
-                                    class="text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-bold transition">Edit</a>
-                                <form action="{{ route('products.destroy', $product->id_produk) }}" method="POST"
-                                    class="inline-block delete-form transition-colors">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit"
-                                        class="text-rose-600 dark:text-rose-400 hover:text-rose-700 dark:hover:text-rose-300 font-bold transition">Hapus</button>
-                                </form>
+                            <td class="px-4 md:px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                <div class="flex items-center justify-center gap-3">
+                                    <a href="{{ route('products.edit', $product->id_produk) }}"
+                                        class="text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-bold transition">Edit</a>
+                                    <form action="{{ route('products.destroy', $product->id_produk) }}" method="POST"
+                                        class="inline-block delete-form transition-colors">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="text-rose-600 dark:text-rose-400 hover:text-rose-700 dark:hover:text-rose-300 font-bold transition">Hapus</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @empty
