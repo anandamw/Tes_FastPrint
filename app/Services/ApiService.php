@@ -11,7 +11,6 @@ class ApiService
 
     public function fetchProducts()
     {
-        // First, get cookies via a GET request (hint: CEK RESPONSE, HEADER, COOKIES)
         $initialResponse = Http::get($this->baseUrl);
         $cookies = $initialResponse->cookies()->toArray();
 
@@ -52,8 +51,7 @@ class ApiService
 
     protected function generateUsername()
     {
-        // Example: tesprogrammer300126C21
-        // format: tesprogrammer + ddmmyy + C + hour (24h)
+
         $date = now()->format('dmy');
         $hour = now()->format('H');
         return "tesprogrammer{$date}C{$hour}";
@@ -61,9 +59,7 @@ class ApiService
 
     protected function generatePassword()
     {
-        // format: bisacoding-tanggal-bulan-tahun_2_digit
-        // Example logic: bisacoding-12-20-21 (note: 20 can be month, 21 can be year)
-        // Usually: bisacoding-d-m-y
+
         $date = now()->format('d-m-y');
         return md5("bisacoding-{$date}");
     }
