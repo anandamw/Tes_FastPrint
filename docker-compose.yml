@@ -1,0 +1,44 @@
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: tes_fastprint-app
+        container_name: tes_fastprint-app
+        restart: unless-stopped
+        tty: true
+        environment:
+            SERVICE_NAME: app
+            SERVICE_TAGS: dev
+        working_dir: /var/www/html
+        ports:
+            - "8080:80"
+        volumes:
+            - ./:/var/www/html
+        networks:
+            - tes_fastprint-network
+        depends_on:
+            - db
+
+    db:
+        image: postgres:15
+        container_name: tes_fastprint-db
+        restart: unless-stopped
+        environment:
+            POSTGRES_DB: ${DB_DATABASE:-tes_fastprint}
+            POSTGRES_USER: ${DB_USERNAME:-postgres}
+            POSTGRES_PASSWORD: ${DB_PASSWORD:-secret}
+        volumes:
+            - dbdata:/var/lib/postgresql/data
+        ports:
+            - "5432:5432"
+        networks:
+            - tes_fastprint-network
+
+networks:
+    tes_fastprint-network:
+        driver: bridge
+
+volumes:
+    dbdata:
+        driver: local
